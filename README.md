@@ -13,6 +13,7 @@ To improve
  - both intergration and unit test need to be fleshed out fro psuedo code
 
  FE
+ - Add tablet and mobile responsive design
  - Convert currency names to the matching symbol
  - Pagination buttons could be made into arrow svgs and show disabled when you cannot go further in one direction
  - Sorting of transactions was not implemented
