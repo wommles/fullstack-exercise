@@ -1,9 +1,20 @@
-import { Router, Request, Response } from "express";
+import { Router, Request, Response } from "express"
+import {  Transaction } from "../../web/src/types"
+import { readTransactionsFromDB } from "../helpers/transactionHelper"
 
-const router = Router();
+const router = Router()
 
-router.get("/", (_req: Request, res: Response) => {
-  // Implement me!
-});
+router.get("/", async (_req: Request, res: Response) => {
+  try {
+    const transactions: Transaction[] = await readTransactionsFromDB()
+    res.json(transactions)
+  } catch (error) {
+    console.error("Error fetching transactions:", error)
+    res.status(500).json({ error: "Internal Server Error" })
+  }
+})
 
-export default router;
+
+
+
+export default router
